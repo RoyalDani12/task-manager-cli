@@ -83,6 +83,20 @@ def remove_task():
     tasks.pop(index)
     save_data()
     print(f"task {tasks[index]["title"]} removed (deleted successfully)")
-        
+#    construct function for the completed task
 
+def completed_task():
+    print("\n---- Completed Tasks -------")
+    
+    completed = []
+    for task in tasks:
+        if task["done"]:
+            completed.append(task)
+
+    if not completed:
+        print("No completed tasks yet.")
+        return
+
+    for index, task in enumerate(completed, 1):
+        print(f"{index}. {task['title']} | Priority: {task['priority']} | Due: {task['due_date']}")
     

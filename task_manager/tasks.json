@@ -9,6 +9,12 @@
         "title": "Python",
         "priority": "medium",
         "due_date": "2026-6-4",
+        "done": true
+    },
+    {
+        "title": "Lesson 2 docker",
+        "priority": "high",
+        "due_date": "2025-9-12",
         "done": false
     }
 ]

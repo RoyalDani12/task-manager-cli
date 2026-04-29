@@ -1,5 +1,5 @@
 # main.py
-from action import add_task, list_tasks,show_pending_task,mark_as_done,remove_task
+from action import add_task, list_tasks,show_pending_task,mark_as_done,remove_task,completed_task
 
 MENU = {
     "1": "Add task",
@@ -7,7 +7,7 @@ MENU = {
     "3": "Pending tasks",
     "4": "Mark task as done",
     "5": "Remove task",
-    "7": "Completed tasks",
+    "6": "Completed tasks",
     "q": "Quit",
 }
 
@@ -40,6 +40,8 @@ def main():
             mark_as_done()
         elif choice == "5":
             remove_task()
+        elif choice == "6":
+            completed_task()
         elif choice in MENU:
             print(f"Feature '{MENU[choice]}' coming soon.")
         else:
