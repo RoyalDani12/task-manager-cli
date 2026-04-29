@@ -1,5 +1,5 @@
 # actions.py
-from database import tasks
+from database import tasks,save_data
 
 def add_task():
     print("\n--- Add New Task ---")
@@ -24,6 +24,7 @@ def add_task():
     }
     
     tasks.append(task)
+    save_data()
     print(f"Success: Task '{title}' added.")
 
 def list_tasks():
@@ -34,5 +35,36 @@ def list_tasks():
 
     # Using enumerate to give each task a visible ID
     for index, task in enumerate(tasks):
-        status = "✅" if task["done"] else "pending"
+        status = "done" if task["done"] else "pending"
         print(f"{index + 1}. [{status}] {task['title']} | Priority: {task['priority']} | Due: {task['due_date']}")
+
+
+# show pending tasks 
+def show_pending_task():
+    
+     print("\n--- Pending Tasks ---")
+     pending =[]
+     for task in tasks:
+         if not task["done"]:
+             pending.append(task)
+     if not pending :
+        print("No pending task.")
+        return
+     for index,task in enumerate(pending,1):
+         print(f"{index}. {task["title"]} | priority : { task["priority"]} | Due :{task["due_date"]}")
+
+def mark_as_done():
+    list_tasks()
+    id = input("Enter the Id of Task you want to mark done ").strip()
+    if not id.isdigit():
+        print("Invalid input. please enter a number")
+        return
+    index = int(id) - 1
+    
+    if index <0 or index >= len(tasks):
+        print("No task found with that number")
+        return
+    tasks[index]["done"] = True
+    print(f"task {tasks[index] ["title"]}  mark as done .Congrats")
+    save_data()
+    
