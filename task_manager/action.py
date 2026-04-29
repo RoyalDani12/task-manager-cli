@@ -68,3 +68,21 @@ def mark_as_done():
     print(f"task {tasks[index] ["title"]}  mark as done .Congrats")
     save_data()
     
+#   WOrk with removing task from  the json
+def remove_task():
+    list_tasks()
+    id = input("Enter the Id of task  you want to remove (Delete). : ").strip()
+    if not id.isdigit():
+        print("Invalid input,PLease enter the valid input please")
+        return
+    index = int(id) -1
+    
+    if index < 0 or index>= len(tasks):
+        print("Please enter a valid input")
+        return
+    tasks.pop(index)
+    save_data()
+    print(f"task {tasks[index]["title"]} removed (deleted successfully)")
+        
+
+    
