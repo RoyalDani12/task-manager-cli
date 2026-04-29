@@ -88,5 +88,5 @@ Due date (YYYY-MM-DD or blank): 2024-12-01
 
 ## Author
 
-Built by a Python developer in training 🐍  
-Learning one function at a time.
+Built by daniel abraraw Python developer in training 🐍  
+
